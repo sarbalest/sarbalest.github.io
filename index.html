@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Portable Ruffle">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <title id="dynamic-title">Portable Ruffle</title>
+  <script src="main.js"></script>
+</head>
+<body>
+<div id='ruffle' class="gameloc"></div>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script id="gabe">
+  var jsonConfig = {
+    <!-- Config Zone -->
+    "swfBaseUrl": "https://jonasrhee1208wastaken.github.io/cacheoswf/",
+    "swfFileName": "jacksmith",
+    "title": "Portable Rufffle"
+  };
+
+  document.getElementById("dynamic-title").innerText = jsonConfig.title;
+
+  // Prompt for the dynamic part of the swfURL
+  var swfFileName = prompt("Enter the SWF file name (without the extension):");
+  if (swfFileName) {
+    jsonConfig.swfFileName = swfFileName;
+  }
+
+  var swfUrl = jsonConfig.swfBaseUrl + jsonConfig.swfFileName + ".swf";
+  swfobject.embedSWF(swfUrl, 'ruffle', 800, 600);
+</script>
+</body>
+</html>
