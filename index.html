@@ -24,7 +24,7 @@
   document.getElementById("dynamic-title").innerText = jsonConfig.title;
 
   // Prompt for the dynamic part of the swfURL
-  var swfFileName = prompt("Enter the SWF file name (without the extension):");
+  var swfFileName = prompt("Enter the SWF file name (with .swf at the end):");
   if (swfFileName) {
     jsonConfig.swfFileName = swfFileName;
   }
